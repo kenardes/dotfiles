@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Load resources
+
+xrdb -merge .Xresources
+
+# Set up an icon tray
+stalonetray &
+
+# Fire up apps
+xscreensaver -no-splash &
+feh -z --bg-fill /mnt/01D294C39C18F2E0/Pictures/Wallpapers &
+xfce4-power-manager &
+compton &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+volumeicon &
+xrandr --output LVDS-1 --brightness 0.8
+
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet --sm-disable &
+fi
+
+exec xmonad
