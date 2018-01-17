@@ -1,0 +1,51 @@
+Config  
+{ 
+  font = "xft:Linux Biolinum O:size=9:antialias=true:Bold:Fixed"
+  , borderColor = "#263238"
+  , border = TopB
+  , bgColor = "#263238"
+  , fgColor = "grey"
+  , position = TopW L 100
+  , commands =
+  [
+    Run MultiCpu
+      [ "-t", "C1:<total0> C2:<total1>", "-S", "True"
+        , "-L", "50", "-H", "75"
+        , "-l", "green", "-n", "yellow", "-h", "red"
+      ] 10
+    , Run Memory
+      [ "-t", "R:<usedratio>", "-S", "True"
+        , "-L", "50", "-H", "75"
+        , "-l", "green", "-n", "yellow", "-h", "red"
+      ] 10
+    , Run Swap
+      [ "-t", "S:<usedratio>", "-S", "True"
+        , "-L", "50", "-H", "75"
+        , "-l", "green", "-n", "yellow", "-h", "red"
+      ] 10
+    , Run Date "%a %d/%m/%Y %H:%M:%S" "date" 10
+    , Run Uptime
+      [ "-t", "<hours>:<minutes>:<seconds>", "-S", "True"
+      ] 10
+    , Run DynNetwork
+      [ "-t", "D:<rx> U:<tx>", "-S", "True"
+        , "-L", "64", "-H", "512"
+        , "-l", "red", "-n", "yellow", "-h", "green"
+      ] 10
+    , Run ThermalZone 0
+      [ "-t", "T:<temp>C"
+        , "-L", "49", "-H", "60"
+        , "-l", "green", "-n", "yellow", "-h", "red"
+      ] 30
+    , Run DiskU
+      [ ("sda7", "~:<used>/<size>")
+      ]
+      [ "-L", "16", "-H", "20"
+        , "-l", "green", "-n", "yellow", "-h", "red"
+      ] 20
+    , Run StdinReader
+  ]
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = "%StdinReader% }{ <fc=#00BCD4>[</fc> <fc=yellow>%uptime%</fc> <fc=#00BCD4>][</fc> %thermal0% <fc=#00BCD4>][</fc> multicpu% <fc=#00BCD4>][</fc> %memory% <fc=#00BCD4>][</fc> %swap% <fc=#00BCD4>][</fc> %disku% <fc=#00BCD4>][</fc> %dynnetwork% <fc=#00BCD4>][</fc> <fc=yellow>%date%</fc> <fc=#00BCD4>]</fc>                 "
+}
