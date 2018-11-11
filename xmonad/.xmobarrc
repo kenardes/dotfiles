@@ -47,5 +47,5 @@ Config
   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{ <fc=#00BCD4>[</fc> <fc=yellow>%uptime%</fc> <fc=#00BCD4>][</fc> %thermal0% <fc=#00BCD4>][</fc> multicpu% <fc=#00BCD4>][</fc> %memory% <fc=#00BCD4>][</fc> %swap% <fc=#00BCD4>][</fc> %disku% <fc=#00BCD4>][</fc> %dynnetwork% <fc=#00BCD4>][</fc> <fc=yellow>%date%</fc> <fc=#00BCD4>]</fc>                 "
+  , template = "%StdinReader% }{ <fc=#00BCD4>[</fc> <fc=yellow>%uptime%</fc> <fc=#00BCD4>][</fc> %thermal0% <fc=#00BCD4>][</fc> %multicpu% <fc=#00BCD4>][</fc> %memory% <fc=#00BCD4>][</fc> %swap% <fc=#00BCD4>][</fc> %disku% <fc=#00BCD4>][</fc> %dynnetwork% <fc=#00BCD4>][</fc> <fc=yellow>%date%</fc> <fc=#00BCD4>]</fc>                 "
 }
