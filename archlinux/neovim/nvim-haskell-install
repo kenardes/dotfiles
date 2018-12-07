@@ -24,4 +24,3 @@ stack install hindent
 
 
 cp -v ./haskell_init.vim $HOME/.config/nvim
-
