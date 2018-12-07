@@ -4,15 +4,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/opoel34/.config/nvim/bundle/repos/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.config/nvim/bundle/repos/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/opoel34/.config/nvim/bundle/repos')
-  call dein#begin('/home/opoel34/.config/nvim/bundle/repos')
+if dein#load_state('$HOME/.config/nvim/bundle/repos')
+  call dein#begin('$HOME/.config/nvim/bundle/repos')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/opoel34/.config/nvim/bundle/repos/repos/github.com/Shougo/dein.vim')
+  call dein#add('$HOME/.config/nvim/bundle/repos/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
