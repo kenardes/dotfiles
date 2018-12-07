@@ -39,6 +39,5 @@ set list
 
 "" Include user's local vim config
 if filereadable(expand("~/.config/nvim/local_init.vim"))
-  "  source ~/.config/nvim/local_init.vim
-  source ~/.config/nvim/haskell_init.vim
+  source $HOME/.config/nvim/local_init.vim
 endif
