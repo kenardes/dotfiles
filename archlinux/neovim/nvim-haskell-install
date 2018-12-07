@@ -1,0 +1,26 @@
+## neomake
+
+stack install hlint
+stack install hdevtools
+
+# ghc-mod
+sed -i -e 's/resolver/\#resolver/g' $HOME/.stack/global-project/stack.yaml
+echo 'resolver: lts-8.24' >> $HOME/.stack/global-project/stack.yaml
+stack install ghc-mod
+
+# liquid
+echo '\nextra-deps:\n- aeson-0.11.3.0@sha256:81676f93966361e4d1b9331498c5b6ddd884669786226eb9016a19608482fa69\n- lens-4.14@sha256:5abbfe0ddfa5e4384111b8415db10d1e8330f9861cfaf184040bf41c65368d10' >> $HOME/.stack/global-project/stack.yaml
+stack install liquid
+
+
+## deoplete
+
+pip3 install --user --upgrade pynvim
+
+
+## vim-hindent
+
+stack install hindent
+
+
+cp -v ./haskell_init.vim $HOME/.config/nvim
