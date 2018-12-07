@@ -1,5 +1,5 @@
-let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '/home/opoel34/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/home/opoel34/.pyenv/versions/neovim3/bin/python'
 
 " Enable syntax highlighting
 syntax on
@@ -38,6 +38,6 @@ set list
 
 
 "" Include user's local vim config
-if filereadable(expand("~/.config/nvim/local_init.vim"))
-  source $HOME/.config/nvim/local_init.vim
+if filereadable(expand("~/.config/nvim/haskell_init.vim"))
+  source ~/.config/nvim/haskell_init.vim
 endif
