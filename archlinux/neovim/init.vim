@@ -12,8 +12,6 @@ set mouse=a mousemodel=popup
 " Solarized, dark, with true color support
 if has('nvim-0.1.5')
     "set termguicolors
-    "set background=dark
-    "colorscheme solarized8_dark
     colorscheme slate
     set bg=dark
 endif
