@@ -25,6 +25,9 @@ if dein#load_state('/home/opoel34/.config/nvim/bundle/repos')
   call dein#add('xolox/vim-misc')   " Miscellaneous auto-load Vim scripts
   call dein#add('xolox/vim-session')   " Extended session management for Vim
 
+  " Git
+  call dein#add('airblade/vim-gitgutter')   " shows a git diff in the 'gutter' (sign column)
+
   " Haskell IDE
   call dein#add('neovimhaskell/haskell-vim')   " Syntax Highlighting and Indentation for Haskell and Cabal
   call dein#add('neomake/neomake')   " Asynchronous linting and make framework for Neovim/Vim
@@ -142,6 +145,10 @@ set sessionoptions-=buffers,options
 :let g:session_persist_colors = 0
 :let g:session_command_aliases = 1
 
+
+""" airblade/vim-gitgutter
+set updatetime=100
+let g:gitgutter_highlight_lines = 1
 
 """ neovimhaskell/haskell-vim
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
