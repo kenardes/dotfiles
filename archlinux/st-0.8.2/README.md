@@ -12,31 +12,20 @@
 
 ## Installation
 * Open terminal emulator
-* Make folder st-0.8.2 and cd into it
 
 ``` shell
+# Make folder st-0.8.2 and cd into it
 $ mkdir st-0.8.2 && cd $_
-```
 
-* Download all the file below:
-  * PKGBUILD   : AUR script to auto build application
-  * config.h   : configuration file of ST
-  * install.sh : the script to easily install ST
-
-``` shell
-$ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/PKGBUILD  
+# download the files needed
+$ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/PKGBUILD
 $ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/config.h
 $ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/install.sh 
-```
 
-* To install ST :
-``` shell
+# To install ST
 $ sh install.sh   # or ./install.sh 
-```
 
-* To run St :
-
-``` shell
+# To run St
 $ st
 ```
 
@@ -67,11 +56,15 @@ $ st
 
 ### Transparancy via compton
 ``` shell
+# if don't have ~/.config/compton.conf then create it
+# edit compton.conf and add rule to st-256color
 $ nvim ~/.config/compton.conf
 opacity-rule = [
 	"92:class_g = 'st-256color'",
 	"92:class_g = 'Xfce4-terminal'"
 ];
+
+# if transparancy not work try to change the opacity value because not all value do
 ```
 
 ## Reference 
