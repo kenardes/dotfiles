@@ -17,7 +17,7 @@
 # Make folder st-0.8.2 and cd into it
 $ mkdir st-0.8.2 && cd $_
 
-# download the files needed
+# Download the files needed
 $ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/PKGBUILD
 $ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/config.h
 $ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/install.sh 
@@ -56,15 +56,15 @@ $ st
 
 ### Transparancy via compton
 ``` shell
-# if don't have ~/.config/compton.conf then create it
-# edit compton.conf and add rule to st-256color
+# If don't have ~/.config/compton.conf then create it
+# Edit compton.conf and add rule to st-256color
 $ nvim ~/.config/compton.conf
 opacity-rule = [
 	"92:class_g = 'st-256color'",
 	"92:class_g = 'Xfce4-terminal'"
 ];
 
-# if transparancy not work try to change the opacity value because not all value do
+# If transparancy not work try to change the opacity value because not all value do
 ```
 
 ## Reference 
