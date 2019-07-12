@@ -1,2 +1,2 @@
-# dotfiles
-some useful &amp; convenient file configuration of mine
+# Dotfiles
+Some useful &amp; convenient file configuration of mine
