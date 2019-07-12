@@ -11,12 +11,33 @@
 * The default copy / paste using clipboard
 
 ## Installation
+* Open terminal emulator
+* Make folder st-0.8.2 and cd into it
+
 ``` shell
-$ sh install.sh
+$ mkdir st-0.8.2 && cd $_
 ```
-Or
+
+* Download all the file below:
+  * PKGBUILD   : AUR script to auto build application
+  * config.h   : configuration file of ST
+  * install.sh : the script to easily install ST
+
 ``` shell
-$ ./install.sh 
+$ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/PKGBUILD  
+$ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/config.h
+$ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/install.sh 
+```
+
+* To install ST :
+``` shell
+$ sh install.sh   # or ./install.sh 
+```
+
+* To run St :
+
+``` shell
+$ st
 ```
 
 ## Shortcuts
