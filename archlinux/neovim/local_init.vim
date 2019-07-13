@@ -27,11 +27,6 @@ if dein#load_state('/home/opoel34/.config/nvim/bundle/repos')
   " Git
   call dein#add('airblade/vim-gitgutter')   " shows a git diff in the 'gutter' (sign column)
 
-  " Haskell IDE
-  call dein#add('neovimhaskell/haskell-vim')   " Syntax Highlighting and Indentation for Haskell and Cabal
-  call dein#add('neomake/neomake')   " Asynchronous linting and make framework for Neovim/Vim
-  call dein#add('alx741/vim-hindent')   " auto indent
-"  call dein#add('eagletmt/neco-ghc')   " haskell completion plugins of deoplete.nvim
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
@@ -148,36 +143,6 @@ set sessionoptions-=buffers,options
 """ airblade/vim-gitgutter
 set updatetime=100
 let g:gitgutter_highlight_lines = 1
-
-
-""" neovimhaskell/haskell-vim
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-let g:haskell_classic_highlighting = 0
-let g:haskell_indent_if = 3
-let g:haskell_indent_case = 2
-let g:haskell_indent_let = 4
-let g:haskell_indent_where = 6
-let g:haskell_indent_before_where = 2
-let g:haskell_indent_after_bare_where = 2
-let g:haskell_indent_do = 3
-let g:haskell_indent_in = 1
-let g:haskell_indent_guard = 2
-let g:haskell_indent_case_alternative = 1
-let g:cabal_indent_section = 2
-
-
-""" neomake
-" Full config: when writing or reading a buffer, and on changes in insert and
-" normal mode (after 1s; no delay when writing).
-call neomake#configure#automake('nrwi', 500)
-let g:neomake_open_list = 2
-let g:neomake_verbose = 3
 
 
 """

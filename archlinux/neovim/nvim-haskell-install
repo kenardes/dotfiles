@@ -3,7 +3,7 @@ stack upgrade --git
 
 ## neomake
 stack install hlint --resolver lts-12.21
-stack install hdevtools --resolver lts-12.21
+#stack install hdevtools --resolver lts-12.21
 
 # ghc-mod
 stack install ghc-mod --resolver lts-9.20
@@ -17,5 +17,6 @@ stack install ghc-mod --resolver lts-9.20
 
 ## vim-hindent
 stack install hindent
+stack install stylish-haskell
 
 cp -v ./haskell_init.vim $HOME/.config/nvim

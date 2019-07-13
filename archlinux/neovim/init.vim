@@ -36,6 +36,6 @@ set list
 
 
 "" Include user's local vim config
-if filereadable(expand("/home/opoel34/.config/nvim/haskell_init.vim"))
-  source /home/opoel34/.config/nvim/haskell_init.vim
+if filereadable(expand("/home/opoel34/.config/nvim/local_init.vim"))
+  source /home/opoel34/.config/nvim/local_init.vim
 endif
