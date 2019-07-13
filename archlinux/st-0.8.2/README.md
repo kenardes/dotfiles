@@ -11,7 +11,6 @@
 * The default copy / paste using clipboard
 
 ## Installation
-* Open terminal emulator
 
 ``` shell
 # Make folder st-0.8.2 and cd into it
@@ -25,7 +24,7 @@ $ wget https://github.com/kenardes/dotfiles/blob/master/archlinux/st-0.8.2/insta
 # To install ST
 $ sh install.sh   # or ./install.sh 
 
-# To run St
+# To run ST
 $ st
 ```
 
