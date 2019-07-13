@@ -13,17 +13,17 @@
 ## Installation
 
 ``` shell
-# create folder and cd into it
+# Create folder and cd into it
 $ mkdir st-0.8.2 && cd $_
 
-# download the files needed
+# Download the files needed
 $ wget https://github.com/kenardes/dotfiles/blob/master/debian/st-0.8.2/config.h
 $ wget https://github.com/kenardes/dotfiles/blob/master/debian/st-0.8.2/install.sh
 
-# to install
+# To install
 $ sh install.sh   # or ./install.sh 
 
-# to run
+# To run
 $ st
 ```
 
@@ -54,16 +54,17 @@ $ st
 
 ### Transparancy via compton
 ``` shell
-# if don't have ~/.config/compton.conf then create it or copy from compton.sample.conf
+# If don't have ~/.config/compton.conf then create it or copy from compton.sample.conf
 $ cp /usr/share/doc/compton/examples/compton.sample.conf ~/.config/compton.conf
 
-# edit compton.conf and add rule to st-256color
-# if transparancy not work try to change the opacity value because not all value do
+# Edit compton.conf and add rule to st-256color
 $ nvim ~/.config/compton.conf
 opacity-rule = [
 	"92:class_g = 'st-256color'",
 	"92:class_g = 'Xfce4-terminal'"
 ];
+
+# If transparancy not work try to change the opacity value because not all value do
 ```
 
 ## Reference 
