@@ -17,8 +17,8 @@
 $ mkdir st-0.8.2 && cd $_
 
 # Download the files needed
-$ wget https://github.com/kenardes/dotfiles/blob/master/debian/st-0.8.2/config.h
-$ wget https://github.com/kenardes/dotfiles/blob/master/debian/st-0.8.2/install.sh
+$ wget https://github.com/kenardes/dotfiles/blob/master/ubuntu/st-0.8.2/config.h
+$ wget https://github.com/kenardes/dotfiles/blob/master/ubuntu/st-0.8.2/install.sh
 
 # To install
 $ sh install.sh   # or ./install.sh 
