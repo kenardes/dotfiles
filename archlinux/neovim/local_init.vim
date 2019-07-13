@@ -17,14 +17,13 @@ if dein#load_state('/home/opoel34/.config/nvim/bundle/repos')
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+
   call dein#add('Shougo/deoplete.nvim')   " dark powered neo-completion
 
-"  call dein#add('wsdjeg/dein-ui.vim')   " UI for Shougo's dein.vim
   call dein#add('vim-airline/vim-airline')
   call dein#add('xolox/vim-misc')   " Miscellaneous auto-load Vim scripts
   call dein#add('xolox/vim-session')   " Extended session management for Vim
 
-  " Git
   call dein#add('airblade/vim-gitgutter')   " shows a git diff in the 'gutter' (sign column)
 
 
