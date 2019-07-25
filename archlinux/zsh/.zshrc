@@ -8,6 +8,12 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+#ZSH_THEME="funkyberlin"
+
+#ZSH_THEME=powerlevel10k/powerlevel10k
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -72,11 +78,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+## if [[ -n $SSH_CONNECTION ]]; then
+##   export EDITOR='vim -u NONE'
+## else
+##   export EDITOR='nvim -u NONE'
+## fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,43 +100,71 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-#export TERM="xterm-256color"
+export TERM="xterm-256color"
+#export TERM=xterm-color
 
 
 # Prompt
-PS1='
-%F{7}[%f%F{8}%n%f%F{7}@%f%F{8}%m%f%F{7}]%f %F{9}%~%f
-${ret_status}%F{12}$%f%{$reset_color%} $(git_prompt_info)'
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PS1='%F{7}[%f%F{8}%*%f%F{7}]%f%F{7}[%f%F{8}%n%f%F{7}@%f%F{8}%m%f%F{7}]%f %F{9}%~%f $(git_prompt_info)
+${ret_status}%F{12}$%f%{$reset_color%} '
 
 
-# Record terminal sessions
-if [ "x$SESSION_RECORD" = "x" ]
-then
-  mkdir -p ~/.script/log/
-  timestamp=`date "+%Y%m%d.%H%M"`
-  output=~/.script/log/terminal.session.$timestamp.$$
-  SESSION_RECORD=started
-  export SESSION_RECORD
-  script -t -f 2>${output}.tm $output.out
-  exit
-fi
+## Record terminal sessions
+#if [ "x$SESSION_RECORD" = "x" ]
+#then
+#  mkdir -p ~/.asciinema/log/
+#  timestamp=`date "+%Y%m%d.%H%M"`
+#  output=~/.asciinema/log/terminal.session.$timestamp.$$
+#  SESSION_RECORD=started
+#  export SESSION_RECORD
+#  asciinema rec ${output}.cast
+#  exit
+#fi
 
 export VISUAL="nvim"
 
-export PATH="/home/opoel34/.gem/ruby/2.5.0/bin:/home/opoel34/.local/bin/:$PATH"
+export PATH="/home/opoel34/.gem/ruby/2.5.0/bin:/home/opoel34/.local/bin/:/home/opoel34/go/bin:$PATH"
 
 export PYENV_ROOT="/home/opoel34/.pyenv"
 export PATH="/home/opoel34/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
+
 alias cdmtp='cd /run/user/1000/gvfs/mtp:host=*/Internal\ storage && ls'
 alias gvfs-trash='gio trash'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias links2='links2 -g -html-display-images 0'
+alias chromium='chromium --save-page-as-mhtml'
+
+emacs2() {
+  st -e emacs -nw ${1}
+}
+
+nvim2() {
+#  xfce4-terminal -e "nvim ${1}"
+  st -e nvim ${1}
+}
+
+cdls() {
+  cd ${1} && ls
+}
+
+cdla() {
+  cd ${1} && la
+}
+
+source /home/opoel34/.nix-profile/etc/profile.d/nix.sh
+
+~/.local/bin/terminalSessions.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/opoel34/.sdkman"
 [[ -s "/home/opoel34/.sdkman/bin/sdkman-init.sh" ]] && source "/home/opoel34/.sdkman/bin/sdkman-init.sh"
-
-alias mv='mv -i'
-alias rm='rm -i'
 
