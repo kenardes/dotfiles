@@ -110,18 +110,6 @@ PS1='%F{7}[%f%F{8}%*%f%F{7}]%f%F{7}[%f%F{8}%n%f%F{7}@%f%F{8}%m%f%F{7}]%f %F{9}%~
 ${ret_status}%F{12}$%f%{$reset_color%} '
 
 
-## Record terminal sessions
-#if [ "x$SESSION_RECORD" = "x" ]
-#then
-#  mkdir -p ~/.asciinema/log/
-#  timestamp=`date "+%Y%m%d.%H%M"`
-#  output=~/.asciinema/log/terminal.session.$timestamp.$$
-#  SESSION_RECORD=started
-#  export SESSION_RECORD
-#  asciinema rec ${output}.cast
-#  exit
-#fi
-
 export VISUAL="nvim"
 
 export PATH="/home/opoel34/.gem/ruby/2.5.0/bin:/home/opoel34/.local/bin/:/home/opoel34/go/bin:$PATH"
@@ -142,20 +130,12 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias links2='links2 -g -html-display-images 0'
 alias chromium='chromium --save-page-as-mhtml'
-
-emacs2() {
-  st -e emacs -nw ${1}
-}
-
-nvim2() {
-#  xfce4-terminal -e "nvim ${1}"
-  st -e nvim ${1}
-}
+alias emacs2='st -e emacs -nw'
+alias nvim='st -e nvim'
 
 cdls() {
   cd ${1} && ls
 }
-
 cdla() {
   cd ${1} && la
 }
