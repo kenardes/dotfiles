@@ -132,6 +132,7 @@ alias links2='links2 -g -html-display-images 0'
 alias chromium='chromium --save-page-as-mhtml'
 alias emacs2='st -e emacs -nw'
 alias nvim='st -e nvim'
+alias gnvim='gnvim --disable-ext-tabline'
 
 cdls() {
   cd ${1} && ls
