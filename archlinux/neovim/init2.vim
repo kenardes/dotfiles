@@ -30,13 +30,17 @@ call matchadd('Trail', '\s\+$', 100)
     \ |   exe "normal! g`\""
     \ | endif
 
-:set cursorline
+" :set cursorline
 
 "" switch between buffer
 map <C-PageUp> :bprevious<CR>
 map <C-PageDown> :bnext<CR>
 map <C-w> :bdelete<CR>
 map <C-t> :Ntree<CR>
+
+"" better bro ol
+command! Bro :enew | setl buftype=nofile |  0put =v:oldfiles
+  \| nnoremap <buffer> <CR> gf | 1
 
 "" switch between split window
 nnoremap <C-J> <C-W><C-J>

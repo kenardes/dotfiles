@@ -153,22 +153,22 @@ if filereadable(expand("/home/opoel34/.config/nvim/init2.vim"))
 endif
 
 
-"" gui: veonim -------
-" if exists('veonim')
-"    if filereadable(expand("/home/opoel34/.config/nvim/veonim.vim"))
-"      source /home/opoel34/.config/nvim/veonim.vim
+"" gui: gnvim -------
+" if exists('gnvim')
+"    if filereadable(expand("/home/opoel34/.config/nvim/gnvim.vim"))
+"      source /home/opoel34/.config/nvim/gnvim.vim
 "    endif
 " else
-"    echo "caurrently using disgusting old terminal"
+"    echo "Using Ugly Terminal"
 " endif
 
 
-"" gui: gnvim -------
-if exists('gnvim')
-   if filereadable(expand("/home/opoel34/.config/nvim/gnvim.vim"))
-     source /home/opoel34/.config/nvim/gnvim.vim
+"" gui: veonim -------
+if exists('veonim')
+   if filereadable(expand("/home/opoel34/.config/nvim/veonim.vim"))
+     source /home/opoel34/.config/nvim/veonim.vim
    endif
 else
-   echo "caurrently using disgusting old terminal"
+   echo "Using Ugly Terminal"
 endif
 
