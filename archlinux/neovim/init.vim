@@ -24,11 +24,11 @@ if dein#load_state('/home/opoel34/.config/nvim/bundle/repos')
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
-"""
+
   call dein#add('vim-airline/vim-airline')   " status line
   call dein#add('morhetz/gruvbox')   " themes
-  call dein#add('thaerkh/vim-workspace')   " autosave session
-"  call dein#add('bling/vim-bufferline')   "show the list of buffers in the command bar
+
+  call dein#add('907th/vim-auto-save')
 
   " Git
   call dein#add('airblade/vim-gitgutter')   " shows a git diff in the 'gutter' (sign column)
@@ -49,16 +49,19 @@ endif
 
 " Required:
 filetype plugin indent on
-"syntax on
+syntax on
 syntax enable
 
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
+  call dein#update()
   call dein#install()
 endif
 
 "End dein Scripts-------------------------
+:autocmd VimLeave * :call dein#recache_runtimepath()
+" call dein#update()
 
 
 "" Shougo/neosnippet.vim
@@ -83,92 +86,40 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+"" vim-scripts/vim-auto-save
+"" https://vimawesome.com/plugin/vim-auto-save
+"" AutoSave current buffer
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+let g:auto_save_silent = 0  " do not display the auto-save notification
+" InsertLeave, will save on every change in every time leave insert mode.
+" CursorHold, will save every amount of milliseconds as defined in the updatetime option in normal mode.
+let g:auto_save_events = ["InsertLeave", "CursorHold"]
+"" augroup ft_markdown
+""   au!
+""   au FileType markdown let b:auto_save = 1  " only AutoSave to FileType markdown
+"" augroup END
 
-""" vim-airline/vim-airline
-" vim powerline options
-"let g:airline_theme='bubblegum'
+"" airblade/vim-gitgutter
+let g:gitgutter_enabled = 1
+set updatetime=1000
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_async = 1
+let g:gitgutter_terminal_reports_focus=0
 
-" don't overwrite symbols if they already exist
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.crypt = ''
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-"let g:airline_symbols.maxlinenr = ''
-"let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-"let g:airline_symbols.linenr = '☰'
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-
-"" thaerkh/vim-workspace
-"let g:workspace_session_directory = $HOME . '/.cache/'
-let g:workspace_autosave = 1
-let g:workspace_autosave_always = 1
-let g:workspace_session_disable_on_args = 0
-
-
-" "" airblade/vim-gitgutter
-let g:gitgutter_enabled = 0
-" set updatetime=100
-" "let g:gitgutter_highlight_lines = 1
-
-
-"" bling/vim-bufferline
-" let g:bufferline_echo = 0
-
+"" autozimu/LanguageClient-neovim
+" Required for operations modifying multiple buffers like rename.
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'sh': ['bash-language-server', 'start'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ }
+nnoremap <F1> :call LanguageClient_contextMenu()<CR>
 
 "" Include user's local vim config
 if filereadable(expand("/home/opoel34/.config/nvim/init2.vim"))
   source /home/opoel34/.config/nvim/init2.vim
-endif
-
-
-"" gui: gnvim -------
-" if exists('gnvim')
-"    if filereadable(expand("/home/opoel34/.config/nvim/gnvim.vim"))
-"      source /home/opoel34/.config/nvim/gnvim.vim
-"    endif
-" else
-"    echo "Using Ugly Terminal"
-" endif
-
-
-"" gui: veonim -------
-if exists('veonim')
-   if filereadable(expand("/home/opoel34/.config/nvim/veonim.vim"))
-     source /home/opoel34/.config/nvim/veonim.vim
-   endif
-else
-   echo "Using Ugly Terminal"
 endif
 
