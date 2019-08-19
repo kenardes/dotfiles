@@ -135,9 +135,12 @@ map <C-t> :Ntree<CR>
 set nohidden
 command! Bro :enew | setl buftype=nofile |  0put =v:oldfiles
   \| nnoremap <buffer> <CR> gf | 1
-""
-:autocmd VimEnter * :enew | setl buftype=nofile |  0put =v:oldfiles
-  \| nnoremap <buffer> <CR> gf | 1
+
+"" auto load Bro at start
+if argc() == 0
+  :autocmd VimEnter * :enew | setl buftype=nofile |  0put =v:oldfiles
+    \| nnoremap <buffer> <CR> gf | 1
+endif
 
 
 "" switch between split window
