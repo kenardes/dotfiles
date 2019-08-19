@@ -140,8 +140,6 @@ command! Bro :enew | setl buftype=nofile |  0put =v:oldfiles
   \| nnoremap <buffer> <CR> gf | 1
 
 
-
-
 "" switch between split window
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
