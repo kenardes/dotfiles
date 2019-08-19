@@ -2,30 +2,31 @@ let g:python_host_prog = '/home/opoel34/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/home/opoel34/.pyenv/versions/neovim3/bin/python'
 
 
-"" auto save & load session
-if argc() == 0
-  let g:arg = 0
-else
-  let g:arg = 1
-endif
+" "" auto save & load session
+" if argc() == 0
+"   let g:arg = 0
+" else
+"   let g:arg = 1
+" endif
+"
+" function! LoadSession()
+"   if !empty(glob("~/.config/nvim/session.vim"))
+"     source ~/.config/nvim/session.vim
+" "    if g:arg == 1
+" "      bfirst
+" "    if g:arg == 0
+" "       source ~/.config/nvim/session.vim
+" "    endif
+"   else
+"     echo "No session loaded."
+"   endif
+" endfunction
+"
+" if g:arg == 0
+"   :autocmd VimLeave * mksession! ~/.config/nvim/session.vim
+"   :autocmd VimEnter * nested :call LoadSession()
+" endif
 
-function! LoadSession()
-  if !empty(glob("~/.config/nvim/session.vim"))
-    source ~/.config/nvim/session.vim
-"    if g:arg == 1
-"      bfirst
-"    if g:arg == 0
-"       source ~/.config/nvim/session.vim
-"    endif
-  else
-    echo "No session loaded."
-  endif
-endfunction
-
-if g:arg == 0
-  :autocmd VimLeave * mksession! ~/.config/nvim/session.vim
-  :autocmd VimEnter * nested :call LoadSession()
-endif
 
 """ vim-airline/vim-airline
 " vim powerline options
@@ -131,8 +132,14 @@ map <C-t> :Ntree<CR>
 
 
 "" better :bro ol
+set nohidden
 command! Bro :enew | setl buftype=nofile |  0put =v:oldfiles
   \| nnoremap <buffer> <CR> gf | 1
+""
+:autocmd VimEnter * :enew | setl buftype=nofile |  0put =v:oldfiles
+  \| nnoremap <buffer> <CR> gf | 1
+
+
 
 
 "" switch between split window
