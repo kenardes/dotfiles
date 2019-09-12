@@ -100,8 +100,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export TERM="xterm-256color"
-#export TERM=xterm-color
+export TERM="tmux-256color"
+# export TERM="xterm-256color"
+# export TERM=xterm-color
 
 
 # Prompt
@@ -131,8 +132,8 @@ alias cp='cp -iv'
 alias links2='links2 -g -html-display-images 0'
 alias chromium='chromium --save-page-as-mhtml'
 alias emacs2='st -e emacs -nw'
-alias nvim='st -e nvim'
-alias gnvim='gnvim --disable-ext-tabline'
+alias nvim2='st -e nvim'
+# alias gnvim='gnvim --disable-ext-tabline'
 
 cdls() {
   cd ${1} && ls
@@ -143,7 +144,17 @@ cdla() {
 
 source /home/opoel34/.nix-profile/etc/profile.d/nix.sh
 
-~/.local/bin/terminalSessions.sh
+# ~/.local/bin/terminalSessions.sh
+
+# tmux
+if [[ -z "$TMUX" ]] ;then
+    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/opoel34/.sdkman"
