@@ -96,6 +96,7 @@ set clipboard+=unnamedplus
 
 " show line number on left
 set nu
+set rnu
 
 
 " displays trailing whitespace in red
